@@ -110,20 +110,18 @@ namespace Local2Field_Fixer
         }
         static OpCode GetOpType(Code X)
         {
-            OpCode CodeToRet = null;
+            // Thx 4 @drakoniа#0601 for some advice :)
             switch (X)
             {
                 case Code.Stsfld:
-                    CodeToRet = OpCodes.Stloc;
-                    break;
+                    return OpCodes.Stloc;
                 case Code.Ldsfld:
-                    CodeToRet = OpCodes.Ldloc;
-                    break;
+                    return OpCodes.Ldloc;
                 case Code.Ldsflda:
-                    CodeToRet = OpCodes.Ldloca;
-                    break;
+                    return OpCodes.Ldloca;
+                default:
+                    return null;
             }
-            return CodeToRet;
         }
     }
 }
